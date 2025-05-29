@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEALTECH - Reparación y Armado de Computadoras</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      background-color: rgba(10,10,10,0.95);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    nav a {
+      color: #f7931e;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background-color: rgba(247, 147, 30, 0.2);
+    }
+
+    header {
+      text-align: center;
+      padding-top: 8rem;
+      padding-bottom: 3rem;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tech-bg.jpg') center/cover;
+    }
+
+    header img {
+      width: 250px; /* Tamaño aumentado del logo */
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: #f7931e;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      color: #ddd;
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .subtitle {
+      color: #aaa;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    .founder-badge {
+      background-color: rgba(247, 147, 30, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      border: 1px solid #f7931e;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #141414;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border-top: 3px solid #f7931e;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #f7931e;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #f7931e;
+      margin: 0.8rem auto;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    ul li::marker {
+      content: '✔ ';
+      color: #00e676;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .servicio-item {
+      background: rgba(30,30,30,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 3px solid #f7931e;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .servicio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .servicio-item h3 {
+      margin-top: 0;
+      color: #f7931e;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Sección del Fundador */
+    .founder-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      background: rgba(30,30,30,0.5);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #f7931e;
+    }
+
+    .founder-photo img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f7931e;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .founder-info h3 {
+      color: #f7931e;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .founder-title {
+      color: #aaa;
+      font-style: italic;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    /* Fin sección fundador */
+
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .brand-item {
+      background: rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .brand-item:hover {
+      background: rgba(247, 147, 30, 0.2);
+      transform: scale(1.05);
+    }
+
+    .brand-item img {
+      height: 50px;
+      filter: grayscale(100%) brightness(1.5);
+      transition: filter 0.3s ease;
+    }
+
+    .brand-item:hover img {
+      filter: grayscale(0) brightness(1);
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+
+    .faq-question {
+      background: none;
+      border: none;
+      color: #f7931e;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-align: left;
+      width: 100%;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+    }
+
+    .faq-question.active::after {
+      content: '-';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 1rem;
+    }
+
+    .faq-answer p {
+      margin-top: 0.5rem;
+    }
+
+    /* Calculadora */
+    #estimate-result {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(247,147,30,0.1);
+      border-left: 3px solid #f7931e;
+    }
+
+    /* Blog */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .blog-post {
+      background: rgba(30,30,30,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-post h3 {
+      color: #f7931e;
+      margin-top: 0;
+    }
+
+    .blog-excerpt {
+      color: #ccc;
+    }
+
+    .read-more {
+      color: #f7931e;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    /* Reservas */
+    #booking-date {
+      min: "";
+    }
+
+    /* Redes Sociales */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .social-card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .facebook { background: #3b5998; }
+    .instagram { background: #e1306c; }
+    .tiktok { background: #000000; }
+
+    /* Modelo de servicio */
+    .service-model {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .service-model h3 {
+      color: #f7931e;
+      font-size: 1.5rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      background: rgba(40,40,40,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      border-bottom: 3px solid #f7931e;
+    }
+
+    .step-number {
+      background: #f7931e;
+      color: #000;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      font-weight: bold;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ddd;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      background: #f7931e;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      grid-column: span 2;
+      justify-self: center;
+      width: 200px;
+    }
+
+    button:hover {
+      background: #e67e00;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(30,30,30,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-method:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: #f7931e;
+    }
+
+    .warranty-card {
+      background: rgba(30,30,30,0.7);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 3px solid #00e676;
+      margin-top: 2rem;
+    }
+
+    .warranty-card h3 {
+      color: #00e676;
+      margin-top: 0;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #777;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .footer-logo {
+      width: 200px; /* Tamaño aumentado del logo en footer */
+      margin-bottom: 1rem;
+    }
+
+    .footer-links h3 {
+      color: #f7931e;
+      margin-top: 0;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #f7931e;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: #aaa;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #f7931e;
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #333;
+    }
+
+    .boton-contacto {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f7931e;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .boton-contacto:hover {
+      background-color: #e67e00;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.8rem;
+      }
+      
+      header {
+        padding-top: 7rem;
+      }
+      
+      header img {
+        width: 200px; /* Tamaño responsive del logo */
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      
+      .servicio-item h3 {
+        font-size: 1.1rem;
+      }
+      
+      .founder-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .founder-photo img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      section h2 {
+        font-size: 1.6rem;
+      }
+      
+      .servicios-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header img {
+        width: 180px; /* Tamaño más pequeño para móviles */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#modelo">Cómo Trabajamos</a>
+    <a href="#presupuesto">Presupuesto</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#blog">Consejos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <header id="inicio" data-aos="fade-down">
+    <img src="logo.png" alt="Logo de VEALTECH">
+    <h1>VEALTECH</h1>
+    <p>Servicio técnico especializado a domicilio y digital</p>
+    <p class="subtitle">Reparación, mejora y armado de computadoras personalizadas</p>
+    <div class="founder-badge" data-aos="fade-up" data-aos-delay="300">
+      Joshua Ruiz Elizondo - Fundador y Técnico Principal
+    </div>
+  </header>
+
+  <section id="servicios" data-aos="fade-up">
+    <div class="card">
+      <h2>Nuestros Servicios</h2>
+      <div class="servicios-grid">
+        <div class="servicio-item">
+          <h3>🛠️ Reparación de Computadoras</h3>
+          <ul>
+            <li>Diagnóstico y solución de fallas de hardware</li>
+            <li>Reparación de placas madre y componentes</li>
+            <li>Reemplazo de piezas defectuosas</li>
+            <li>Recuperación de datos</li>
+            <li>Solución de problemas de software</li>
+          </ul>
+        </div>
+        
+        <div class="servicio-item">
+          <h3>⚡ Mejora de Rendimiento</h3>
+          <ul>
+            <li>Actualización de componentes (RAM, SSD, GPU)</li>
+            <li>Optimización de sistemas operativos</li>
+            <li>Overclocking controlado</li>
+            <li>Limpieza y mantenimiento preventivo</li>
+            <li>Mejora de sistemas de refrigeración</li>
+          </ul>
+        </div>
+        
+        <div class="servicio-item">
+          <h3>💻 Armado de PC Personalizadas</h3>
+          <ul>
+            <li>Equipos gaming de alto rendimiento</li>
+            <li>Workstations para profesionales</li>
+            <li>PC económicas para oficina/hogar</li>
+            <li>Asesoría personalizada en componentes</li>
+            <li>Configuración optimizada para cada necesidad</li>
+          </ul>
+        </div>
+        
+        <div class="servicio-item">
+          <h3>👨‍💻 Asesoramiento Técnico</h3>
+          <ul>
+            <li>Guía para compra de componentes</li>
+            <li>Optimización de setups existentes</li>
+            <li>Capacitación en uso de equipos</li>
+            <li>Solución de dudas técnicas</li>
+            <li>Recomendaciones para mantenimiento</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="brands">
+        <div class="brand-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel">
+        </div>
+        <div class="brand-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="AMD">
+        </div>
+        <div class="brand-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Nvidia_logo.svg" alt="NVIDIA">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" data-aos="fade-up">
+    <div class="card">
+      <h2>Sobre Nosotros</h2>
+      
+      <div class="founder-section">
+        <div class="founder-photo">
+          <img src="joshua-ruiz.jpg" alt="Joshua Ruiz Elizondo - Fundador de VEALTECH">
+        </div>
+        <div class="founder-info">
+          <h3>Joshua Ruiz Elizondo</h3>
+          <p class="founder-title">Fundador y Técnico Principal</p>
+          <p>Con más de 5 años de experiencia en el campo de la tecnología, me apasiona ofrecer soluciones personalizadas y honestas para cada necesidad tecnológica de mis clientes.</p>
+        </div>
+      </div>
+
+      <p>
+        <strong>VEALTECH</strong> nació de mi pasión por la tecnología y el deseo de ofrecer un servicio técnico diferente, donde la honestidad y la calidad son los pilares fundamentales.
+      </p>
+      
+      <p>
+        A diferencia de una tienda tradicional, ofrecemos un servicio directo y personalizado:
+      </p>
+      
+      <ul>
+        <li><strong>Servicio a domicilio</strong> para diagnóstico y reparaciones</li>
+        <li><strong>Armado de equipos</strong> en nuestro taller con componentes de calidad</li>
+        <li><strong>Asesoramiento honesto</strong> sin compromisos comerciales</li>
+        <li><strong>Soluciones digitales</strong> para consultas y soporte remoto</li>
+      </ul>
+      
+      <div class="warranty-card">
+        <h3>🔒 Garantía de Servicio</h3>
+        <p>Todas nuestras reparaciones tienen garantía de 3 meses y los componentes nuevos instalados cuentan con 1 año de garantía. Nos comprometemos con la satisfacción total de nuestros clientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="modelo" data-aos="fade-up">
+    <div class="card">
+      <h2>Cómo Trabajamos</h2>
+      <p>Nuestro modelo de servicio está diseñado para ofrecerte la mejor experiencia:</p>
+      
+      <div class="service-model">
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Contacto Inicial</h3>
+            <p>Nos cuentas tu necesidad por WhatsApp, llamada o formulario</p>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Diagnóstico</h3>
+            <p>Evaluamos el equipo (presencial o remotamente) y te damos un presupuesto</p>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Solución</h3>
+            <p>Realizamos las reparaciones o armado del equipo según lo acordado</p>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Entrega</h3>
+            <p>Te entregamos el equipo funcionando con explicación de los trabajos realizados</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="presupuesto" data-aos="fade-up">
+    <div class="card">
+      <h2>Estimador de Costos</h2>
+      <p>Obtén un estimado aproximado para tu servicio:</p>
+      
+      <form id="calculator-form">
+        <div class="form-group">
+          <label for="service-type">Tipo de Servicio</label>
+          <select id="service-type" required>
+            <option value="">Seleccione...</option>
+            <option value="reparacion">Reparación Básica</option>
+            <option value="limpieza">Limpieza Interna</option>
+            <option value="upgrade">Actualización de Componentes</option>
+            <option value="armado">Armado de PC Personalizada</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="urgency">Urgencia</label>
+          <select id="urgency">
+            <option value="normal">Normal (3-5 días)</option>
+            <option value="express">Express (24-48 horas) +20%</option>
+          </select>
+        </div>
+        
+        <button type="button" id="calculate-btn">Calcular Estimado</button>
+        
+        <div id="estimate-result">
+          <h3>Estimado: <span id="estimate-amount"></span></h3>
+          <p id="estimate-details"></p>
+          <small>* Este es solo un estimado. Contacta con nosotros para una evaluación exacta.</small>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="faq" data-aos="fade-up">
+    <div class="card">
+      <h2>Preguntas Frecuentes</h2>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Cuánto tiempo tardan las reparaciones?</button>
+        <div class="faq-answer">
+          <p>El tiempo varía según la complejidad del problema. Reparaciones simples pueden realizarse en 24-48 horas, mientras que problemas más complejos pueden tomar hasta 5 días hábiles.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Tienen repuestos en stock?</button>
+        <div class="faq-answer">
+          <p>Trabajamos con proveedores confiables para conseguir los componentes necesarios. Normalmente podemos obtener partes dentro de 1-2 semanas hábiles maximo.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Ofrecen garantía en sus servicios?</button>
+        <div class="faq-answer">
+          <p>Sí, todas nuestras reparaciones tienen 3 meses de garantía y los componentes nuevos instalados tienen 1 año de garantía.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">¿Pueden ayudarme a elegir componentes para mi PC?</button>
+        <div class="faq-answer">
+          <p>¡Claro que sí! Ofrecemos asesoramiento personalizado para ayudarte a seleccionar los mejores componentes según tu presupuesto y necesidades.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" data-aos="fade-up">
+    <div class="card">
+      <h2>Consejos Técnicos</h2>
+      <p>Aprende a cuidar y optimizar tus equipos:</p>
+      
+      <div class="blog-grid">
+        <article class="blog-post">
+          <h3>5 Señales de que tu PC Necesita Limpieza</h3>
+          <p class="blog-excerpt">El sobrecalentamiento y ruidos extraños pueden indicar acumulación de polvo...</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </article>
+        
+        <article class="blog-post">
+          <h3>Cómo Elegir los Componentes para tu PC Gamer</h3>
+          <p class="blog-excerpt">Guía básica para seleccionar los componentes adecuados según tu presupuesto...</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </article>
+
+        <article class="blog-post">
+          <h3>Mantenimiento Básico para Alargar la Vida de tu Computadora</h3>
+          <p class="blog-excerpt">Pequeñas acciones que puedes realizar regularmente para mantener tu equipo en óptimas condiciones...</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservas" data-aos="fade-up">
+    <div class="card">
+      <h2>Agenda tu Servicio</h2>
+      <p>Selecciona una fecha y hora conveniente para tu servicio:</p>
+      
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="booking-date">Fecha</label>
+          <input type="date" id="booking-date" min="" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="booking-time">Hora</label>
+          <select id="booking-time" required>
+            <option value="">Seleccione...</option>
+            <option value="9-11">9:00 AM - 11:00 AM</option>
+            <option value="11-1">11:00 AM - 1:00 PM</option>
+            <option value="1-3">1:00 PM - 3:00 PM</option>
+            <option value="3-5">3:00 PM - 5:00 PM</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="booking-service">Tipo de Servicio</label>
+          <select id="booking-service" required>
+            <option value="">Seleccione...</option>
+            <option value="diagnostico">Diagnóstico</option>
+            <option value="reparacion">Reparación</option>
+            <option value="armado">Armado de PC</option>
+            <option value="asesoramiento">Asesoramiento</option>
+          </select>
+        </div>
+        
+        <button type="submit">Reservar Cita</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="redes" data-aos="fade-up">
+    <div class="card">
+      <h2>Síguenos en Redes</h2>
+      <p>Mantente actualizado con nuestros últimos trabajos y consejos:</p>
+      
+      <div class="social-grid">
+        <a href="#" class="social-card facebook">
+          <i class="fab fa-facebook-f"></i>
+          <span>Facebook</span>
+        </a>
+        
+        <a href="#" class="social-card instagram">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        
+        <a href="#" class="social-card tiktok">
+          <i class="fab fa-tiktok"></i>
+          <span>TikTok</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" data-aos="fade-up">
+    <div class="card">
+      <h2>Contacto</h2>
+      <p>¿Necesitas ayuda con tus equipos? Contáctanos:</p>
+      
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono">
+        </div>
+        
+        <div class="form-group">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio">
+            <option value="">Seleccione una opción</option>
+            <option value="reparacion">Reparación</option>
+            <option value="mejora">Mejora de equipo</option>
+            <option value="armado">Armado de PC</option>
+            <option value="asesoramiento">Asesoramiento Técnico</option>
+          </select>
+        </div>
+        
+        <div class="form-group full-width">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" required></textarea>
+        </div>
+        
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+      
+      <div class="contact-info">
+        <div class="contact-method">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h3 style="margin: 0 0 0.3rem 0; color: #f7931e;">Email</h3>
+            <p style="margin: 0;"><a href="mailto:vealtech.cr@gmail.com" style="color: #ddd; text-decoration: none;">vealtech.cr@gmail.com</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon">📱</div>
+          <div>
+            <h3 style="margin: 0 0 0.3rem 0; color: #f7931e;">WhatsApp</h3>
+            <p style="margin: 0;"><a href="https://wa.me/50671434747" style="color: #ddd; text-decoration: none;">+506 7143-4747</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h3 style="margin: 0 0 0.3rem 0; color: #f7931e;">Modalidad</h3>
+            <p style="margin: 0;">Servicio a domicilio/digital</p>
+            <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">(No tenemos tienda física)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <img src="logo-white.png" alt="VEALTECH" class="footer-logo">
+        <p>Servicio técnico especializado en reparación y armado de computadoras. Soluciones personalizadas y honestas.</p>
+        <div class="social-links">
+          <a href="https://wa.me/50671434747"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:vealtech.cr@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+50671434747"><i class="fas fa-phone-alt"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Servicios</h3>
+        <ul>
+          <li><a href="#servicios">Reparación de PC</a></li>
+          <li><a href="#servicios">Mejora de equipos</a></li>
+          <li><a href="#servicios">Armado de computadoras</a></li>
+          <li><a href="#servicios">Asesoramiento técnico</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="https://wa.me/50671434747">WhatsApp: 7143-4747</a></li>
+          <li><a href="mailto:vealtech.cr@gmail.com">vealtech.cr@gmail.com</a></li>
+          <li>Servicio en Costa Rica</li>
+          <li>Horario: L-V 9am-6pm</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 VEALTECH. Todos los derechos reservados.</p>
+      <p>Fundado y operado por Joshua Ruiz Elizondo</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/50671434747" class="boton-contacto">
+    <span>💬</span> WhatsApp
+  </a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+    
+    // Form submission handling
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+      this.reset();
+    });
+    
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + 'px';
+      });
+    });
+    
+    // Calculator functionality
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+      const serviceType = document.getElementById('service-type').value;
+      const urgency = document.getElementById('urgency').value;
+      
+      if(!serviceType) {
+        alert('Por favor selecciona un tipo de servicio');
+        return;
+      }
+      
+      // Precios base
+      let basePrice = 0;
+      let serviceName = '';
+      
+      switch(serviceType) {
+        case 'reparacion':
+          basePrice = 25000;
+          serviceName = 'Reparación Básica';
+          break;
+        case 'limpieza':
+          basePrice = 15000;
+          serviceName = 'Limpieza Interna';
+          break;
+        case 'upgrade':
+          basePrice = 35000;
+          serviceName = 'Actualización de Componentes';
+          break;
+        case 'armado':
+          basePrice = 50000;
+          serviceName = 'Armado de PC Personalizada';
+          break;
+      }
+      
+      // Aplicar urgencia
+      let total = basePrice;
+      if(urgency === 'express') {
+        total = Math.round(basePrice * 1.2);
+      }
+      
+      // Mostrar resultado
+      document.getElementById('estimate-amount').textContent = '₡' + total.toLocaleString();
+      document.getElementById('estimate-details').textContent = serviceName + (urgency === 'express' ? ' (Servicio Express)' : '');
+      document.getElementById('estimate-result').style.display = 'block';
+    });
+    
+    // Booking form
+    document.getElementById('booking-date').min = new Date().toISOString().split('T')[0];
+    
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const date = document.getElementById('booking-date').value;
+      const time = document.getElementById('booking-time').value;
+      const service = document.getElementById('booking-service').value;
+      
+      // Aquí podrías conectar con un backend o simplemente mostrar un mensaje
+      alert(`Cita agendada para el ${date} en el horario ${time} para ${service}. Nos comunicaremos para confirmar.`);
+      this.reset();
+    });
+  </script>
+</body>
+</html>
