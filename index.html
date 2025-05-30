@@ -2,43 +2,70 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <title>VEALTECH - Reparación y Armado de Computadoras</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #f7931e;
+      --secondary-color: #00e676;
+      --dark-bg: #0a0a0a;
+      --medium-bg: #141414;
+      --light-bg: #1a1a1a;
+      --text-light: #f0f0f0;
+      --text-medium: #aaa;
+      --text-dark: #777;
+    }
+    
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
-      color: #f0f0f0;
+      background: linear-gradient(145deg, var(--dark-bg), var(--light-bg));
+      color: var(--text-light);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* Navigation */
     nav {
       position: fixed;
       width: 100%;
-      background-color: rgba(10,10,10,0.95);
-      padding: 1rem;
+      background-color: rgba(10,10,10,0.98);
+      padding: 0.8rem 1rem;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 0.5rem;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      flex-wrap: wrap;
     }
 
     nav a {
-      color: #f7931e;
+      color: var(--primary-color);
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      padding: 0.5rem 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0.8rem;
       border-radius: 4px;
+      font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -46,15 +73,21 @@
       background-color: rgba(247, 147, 30, 0.2);
     }
 
+    /* Header */
     header {
       text-align: center;
-      padding-top: 8rem;
-      padding-bottom: 3rem;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tech-bg.jpg') center/cover;
+      padding: 7rem 1rem 3rem;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('tech-bg.jpg') center/cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     header img {
-      width: 250px; /* Tamaño aumentado del logo */
+      width: 180px;
+      max-width: 60%;
       margin-bottom: 1.5rem;
       transition: transform 0.3s ease;
     }
@@ -64,21 +97,24 @@
     }
 
     header h1 {
-      font-size: 2.8rem;
-      color: #f7931e;
+      font-size: 2.2rem;
+      color: var(--primary-color);
       margin: 0;
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      line-height: 1.2;
     }
 
     header p {
       color: #ddd;
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      max-width: 800px;
+      padding: 0 1rem;
     }
 
     .subtitle {
-      color: #aaa;
-      font-size: 1.1rem;
+      color: var(--text-medium);
+      font-size: 1rem;
       margin-top: 0.5rem;
     }
 
@@ -87,29 +123,30 @@
       padding: 0.5rem 1rem;
       border-radius: 20px;
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       font-size: 0.9rem;
-      border: 1px solid #f7931e;
+      border: 1px solid var(--primary-color);
     }
 
+    /* Main Sections */
     section {
-      padding: 3rem 1rem;
+      padding: 2.5rem 1rem;
       max-width: 1100px;
       margin: auto;
     }
 
     .card {
-      background-color: #141414;
+      background-color: var(--medium-bg);
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      padding: 2.5rem;
+      padding: 1.5rem;
       margin-bottom: 2rem;
-      border-top: 3px solid #f7931e;
+      border-top: 3px solid var(--primary-color);
     }
 
     section h2 {
-      font-size: 2rem;
-      color: #f7931e;
+      font-size: 1.8rem;
+      color: var(--primary-color);
       margin-bottom: 1.5rem;
       text-align: center;
       position: relative;
@@ -118,37 +155,40 @@
     section h2::after {
       content: '';
       display: block;
-      width: 80px;
+      width: 60px;
       height: 3px;
-      background: #f7931e;
+      background: var(--primary-color);
       margin: 0.8rem auto;
     }
 
+    /* Lists */
     ul {
-      padding-left: 1.5rem;
+      padding-left: 1.2rem;
     }
 
     ul li {
       margin-bottom: 0.5rem;
+      padding-left: 0.3rem;
     }
 
     ul li::marker {
       content: '✔ ';
-      color: #00e676;
+      color: var(--secondary-color);
     }
 
+    /* Services Grid */
     .servicios-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .servicio-item {
       background: rgba(30,30,30,0.7);
-      padding: 1.5rem;
+      padding: 1.3rem;
       border-radius: 8px;
-      border-left: 3px solid #f7931e;
+      border-left: 3px solid var(--primary-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -159,61 +199,66 @@
 
     .servicio-item h3 {
       margin-top: 0;
-      color: #f7931e;
-      font-size: 1.3rem;
+      color: var(--primary-color);
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
-    /* Sección del Fundador */
+    /* Founder Section */
     .founder-section {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
       margin-bottom: 2rem;
       background: rgba(30,30,30,0.5);
       padding: 1.5rem;
       border-radius: 10px;
-      border-left: 4px solid #f7931e;
+      border-left: 4px solid var(--primary-color);
     }
 
     .founder-photo img {
-      width: 180px;
-      height: 180px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #f7931e;
+      border: 3px solid var(--primary-color);
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
+    .founder-info {
+      text-align: center;
+    }
+
     .founder-info h3 {
-      color: #f7931e;
+      color: var(--primary-color);
       margin-top: 0;
       margin-bottom: 0.5rem;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     .founder-title {
-      color: #aaa;
+      color: var(--text-medium);
       font-style: italic;
       margin-top: 0;
       margin-bottom: 1rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
-    /* Fin sección fundador */
 
+    /* Brands */
     .brands {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
 
     .brand-item {
       background: rgba(255,255,255,0.1);
-      padding: 1rem 1.5rem;
+      padding: 0.8rem 1.2rem;
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -226,7 +271,7 @@
     }
 
     .brand-item img {
-      height: 50px;
+      height: 40px;
       filter: grayscale(100%) brightness(1.5);
       transition: filter 0.3s ease;
     }
@@ -245,12 +290,12 @@
     .faq-question {
       background: none;
       border: none;
-      color: #f7931e;
+      color: var(--primary-color);
       font-weight: bold;
       font-size: 1.1rem;
       text-align: left;
       width: 100%;
-      padding: 0.5rem 0;
+      padding: 0.8rem 0;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -260,6 +305,7 @@
     .faq-question::after {
       content: '+';
       font-size: 1.5rem;
+      margin-left: 0.5rem;
     }
 
     .faq-question.active::after {
@@ -270,33 +316,35 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
-      padding: 0 1rem;
+      padding: 0 0.5rem;
     }
 
     .faq-answer p {
       margin-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
 
-    /* Calculadora */
+    /* Calculator */
     #estimate-result {
       display: none;
       margin-top: 1.5rem;
       padding: 1rem;
       background: rgba(247,147,30,0.1);
-      border-left: 3px solid #f7931e;
+      border-left: 3px solid var(--primary-color);
+      border-radius: 4px;
     }
 
     /* Blog */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .blog-post {
       background: rgba(30,30,30,0.7);
-      padding: 1.5rem;
+      padding: 1.3rem;
       border-radius: 8px;
       transition: transform 0.3s ease;
     }
@@ -306,31 +354,34 @@
     }
 
     .blog-post h3 {
-      color: #f7931e;
+      color: var(--primary-color);
       margin-top: 0;
+      font-size: 1.2rem;
     }
 
     .blog-excerpt {
       color: #ccc;
+      font-size: 0.95rem;
     }
 
     .read-more {
-      color: #f7931e;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
       margin-top: 0.5rem;
+      font-size: 0.9rem;
     }
 
-    /* Reservas */
+    /* Booking */
     #booking-date {
       min: "";
     }
 
-    /* Redes Sociales */
+    /* Social Media */
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -340,12 +391,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      padding: 1.2rem 0.5rem;
       border-radius: 8px;
       text-decoration: none;
       color: white;
       font-weight: bold;
       transition: transform 0.3s ease;
+      font-size: 0.9rem;
     }
 
     .social-card:hover {
@@ -353,7 +405,7 @@
     }
 
     .social-card i {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 0.5rem;
     }
 
@@ -361,64 +413,67 @@
     .instagram { background: #e1306c; }
     .tiktok { background: #000000; }
 
-    /* Modelo de servicio */
+    /* Service Model */
     .service-model {
-      margin-top: 3rem;
+      margin-top: 2rem;
       text-align: center;
     }
 
     .service-model h3 {
-      color: #f7931e;
-      font-size: 1.5rem;
+      color: var(--primary-color);
+      font-size: 1.3rem;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .step {
       background: rgba(40,40,40,0.7);
-      padding: 1.5rem;
+      padding: 1.2rem;
       border-radius: 8px;
       text-align: center;
-      border-bottom: 3px solid #f7931e;
+      border-bottom: 3px solid var(--primary-color);
     }
 
     .step-number {
-      background: #f7931e;
+      background: var(--primary-color);
       color: #000;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 1rem auto;
       font-weight: bold;
+      font-size: 1rem;
     }
 
+    /* Forms */
     .contact-form {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .form-group.full-width {
-      grid-column: span 2;
+      grid-column: span 1;
     }
 
     label {
       display: block;
       margin-bottom: 0.5rem;
       color: #ddd;
+      font-size: 0.95rem;
     }
 
     input, textarea, select {
@@ -426,9 +481,16 @@
       padding: 0.8rem;
       background: rgba(255,255,255,0.1);
       border: 1px solid #444;
-      border-radius: 4px;
+      border-radius: 6px;
       color: #fff;
       font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--primary-color);
     }
 
     textarea {
@@ -436,29 +498,34 @@
       resize: vertical;
     }
 
-    button {
-      background: #f7931e;
+    button, .btn {
+      background: var(--primary-color);
       color: #fff;
       border: none;
-      padding: 1rem 2rem;
+      padding: 0.9rem 1.5rem;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease;
-      grid-column: span 2;
-      justify-self: center;
-      width: 200px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+      font-size: 1rem;
+      display: block;
+      text-align: center;
     }
 
-    button:hover {
+    button:hover, .btn:hover {
       background: #e67e00;
+      transform: translateY(-2px);
     }
 
+    /* Contact Info */
     .contact-info {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .contact-method {
@@ -466,7 +533,7 @@
       align-items: center;
       gap: 1rem;
       background: rgba(30,30,30,0.7);
-      padding: 1.5rem;
+      padding: 1.2rem;
       border-radius: 8px;
       transition: transform 0.3s ease;
     }
@@ -476,48 +543,68 @@
     }
 
     .contact-icon {
-      font-size: 2rem;
-      color: #f7931e;
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      min-width: 40px;
+      text-align: center;
     }
 
+    .contact-method h3 {
+      margin: 0 0 0.3rem 0;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+    }
+
+    .contact-method p, .contact-method a {
+      margin: 0;
+      color: #ddd;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    /* Warranty */
     .warranty-card {
       background: rgba(30,30,30,0.7);
-      padding: 1.5rem;
+      padding: 1.3rem;
       border-radius: 8px;
-      border-left: 3px solid #00e676;
-      margin-top: 2rem;
+      border-left: 3px solid var(--secondary-color);
+      margin-top: 1.5rem;
     }
 
     .warranty-card h3 {
-      color: #00e676;
+      color: var(--secondary-color);
       margin-top: 0;
+      font-size: 1.3rem;
     }
 
+    /* Footer */
     footer {
       background-color: #111;
       text-align: center;
       padding: 2rem 1rem;
-      color: #777;
+      color: var(--text-dark);
       margin-top: 3rem;
     }
 
     .footer-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
       text-align: left;
     }
 
     .footer-logo {
-      width: 200px; /* Tamaño aumentado del logo en footer */
+      width: 160px;
       margin-bottom: 1rem;
     }
 
     .footer-links h3 {
-      color: #f7931e;
+      color: var(--primary-color);
       margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     .footer-links ul {
@@ -530,13 +617,14 @@
     }
 
     .footer-links a {
-      color: #aaa;
+      color: var(--text-medium);
       text-decoration: none;
       transition: color 0.3s ease;
+      font-size: 0.9rem;
     }
 
     .footer-links a:hover {
-      color: #f7931e;
+      color: var(--primary-color);
     }
 
     .social-links {
@@ -547,28 +635,34 @@
     }
 
     .social-links a {
-      color: #aaa;
-      font-size: 1.5rem;
+      color: var(--text-medium);
+      font-size: 1.3rem;
       transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: #f7931e;
+      color: var(--primary-color);
     }
 
     .copyright {
       margin-top: 2rem;
       padding-top: 1.5rem;
       border-top: 1px solid #333;
+      font-size: 0.85rem;
     }
 
+    .copyright p {
+      margin: 0.3rem 0;
+    }
+
+    /* WhatsApp Button */
     .boton-contacto {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #f7931e;
+      background-color: var(--primary-color);
       color: #fff;
-      padding: 12px 20px;
+      padding: 12px 18px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
@@ -578,6 +672,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 0.95rem;
     }
 
     .boton-contacto:hover {
@@ -586,139 +681,163 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     }
 
-    @media (max-width: 768px) {
+    /* Mobile Menu Toggle (for very small screens) */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
 
-      nav a {
-        font-size: 13px;
-        padding: 0.4rem 0.5rem;
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--dark-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+      html {
+        font-size: 17px;
       }
-
-      .nav-links a {
-        border-top: 1px solid #222;
-      }
-
-      .nav-links {
-        text-align: center;
-      }
-
-      .nav-links.show a {
-        padding: 0.8rem 1rem;
-      }
-
+      
       nav {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 0.8rem;
+        padding: 1rem;
+        gap: 1.5rem;
+      }
+      
+      nav a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
       }
       
       header {
-        padding-top: 7rem;
+        padding-top: 8rem;
       }
       
       header img {
-        width: 200px; /* Tamaño responsive del logo */
+        width: 220px;
       }
       
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
       
       .contact-form {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
       
       .form-group.full-width {
-        grid-column: span 1;
-      }
-      
-      .servicio-item h3 {
-        font-size: 1.1rem;
+        grid-column: span 2;
       }
       
       .founder-section {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        text-align: left;
+      }
+      
+      .founder-info {
+        text-align: left;
+      }
+      
+      button, .btn {
+        width: auto;
+        padding: 1rem 2rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .card {
+        padding: 2rem;
+      }
+      
+      header h1 {
+        font-size: 2.8rem;
+      }
+      
+      section h2 {
+        font-size: 2rem;
       }
       
       .founder-photo img {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
       }
     }
 
     @media (max-width: 480px) {
+      nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0.8rem 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      
+      header {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .steps {
+        grid-template-columns: 1fr;
+      }
+      
+      .servicios-grid, .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Very small screens (320px and below) */
+    @media (max-width: 320px) {
+      html {
+        font-size: 15px;
+      }
+      
       header h1 {
         font-size: 1.8rem;
       }
       
-      section h2 {
-        font-size: 1.6rem;
-      }
-      
-      .servicios-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      header img {
-        width: 180px; /* Tamaño más pequeño para móviles */
-      }
-    }
-  
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: #f7931e;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-
-      nav a {
-        font-size: 13px;
-        padding: 0.4rem 0.5rem;
-      }
-
-      .nav-links a {
-        border-top: 1px solid #222;
-      }
-
-      .nav-links {
+      .contact-method {
+        flex-direction: column;
         text-align: center;
       }
-
-      .nav-links.show a {
-        padding: 0.8rem 1rem;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #0a0a0a;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
     }
-
   </style>
 </head>
 <body>
 
   <nav>
-    <button class="nav-toggle" id="menu-btn"><i class="fas fa-bars"></i></button>
-    <div class="nav-links" id="nav-menu">
     <a href="#inicio">Inicio</a>
     <a href="#servicios">Servicios</a>
     <a href="#nosotros">Nosotros</a>
@@ -727,11 +846,10 @@
     <a href="#faq">Preguntas</a>
     <a href="#blog">Consejos</a>
     <a href="#contacto">Contacto</a>
-      </div>
-</nav>
+  </nav>
 
   <header id="inicio" data-aos="fade-down">
-    <img src="logo.png" alt="Logo de VEALTECH">
+    <img src="logo.png" alt="Logo de VEALTECH" class="fade-in">
     <h1>VEALTECH</h1>
     <p>Servicio técnico especializado a domicilio y digital</p>
     <p class="subtitle">Reparación, mejora y armado de computadoras personalizadas</p>
@@ -791,13 +909,13 @@
 
       <div class="brands">
         <div class="brand-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Intel" loading="lazy">
         </div>
         <div class="brand-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="AMD">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="AMD" loading="lazy">
         </div>
         <div class="brand-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Nvidia_logo.svg" alt="NVIDIA">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Nvidia_logo.svg" alt="NVIDIA" loading="lazy">
         </div>
       </div>
     </div>
@@ -809,7 +927,7 @@
       
       <div class="founder-section">
         <div class="founder-photo">
-          <img src="joshua-ruiz.jpg" alt="Joshua Ruiz Elizondo - Fundador de VEALTECH">
+          <img src="joshua-ruiz.jpg" alt="Joshua Ruiz Elizondo - Fundador de VEALTECH" loading="lazy">
         </div>
         <div class="founder-info">
           <h3>Joshua Ruiz Elizondo</h3>
@@ -900,7 +1018,7 @@
           </select>
         </div>
         
-        <button type="button" id="calculate-btn">Calcular Estimado</button>
+        <button type="button" id="calculate-btn" class="btn">Calcular Estimado</button>
         
         <div id="estimate-result">
           <h3>Estimado: <span id="estimate-amount"></span></h3>
@@ -925,7 +1043,7 @@
       <div class="faq-item">
         <button class="faq-question">¿Tienen repuestos en stock?</button>
         <div class="faq-answer">
-          <p>Trabajamos con proveedores confiables para conseguir los componentes necesarios. Normalmente podemos obtener partes dentro de 1-2 semanas hábiles maximo.</p>
+          <p>Trabajamos con proveedores confiables para conseguir los componentes necesarios. Normalmente podemos obtener partes dentro de 1-2 semanas hábiles máximo.</p>
         </div>
       </div>
       
@@ -1005,7 +1123,7 @@
           </select>
         </div>
         
-        <button type="submit">Reservar Cita</button>
+        <button type="submit" class="btn">Reservar Cita</button>
       </form>
     </div>
   </section>
@@ -1071,32 +1189,32 @@
           <textarea id="mensaje" required></textarea>
         </div>
         
-        <button type="submit">Enviar Mensaje</button>
+        <button type="submit" class="btn">Enviar Mensaje</button>
       </form>
       
       <div class="contact-info">
         <div class="contact-method">
           <div class="contact-icon">📧</div>
           <div>
-            <h3 style="margin: 0 0 0.3rem 0; color: #f7931e;">Email</h3>
-            <p style="margin: 0;"><a href="mailto:vealtech.cr@gmail.com" style="color: #ddd; text-decoration: none;">vealtech.cr@gmail.com</a></p>
+            <h3>Email</h3>
+            <p><a href="mailto:vealtech.cr@gmail.com">vealtech.cr@gmail.com</a></p>
           </div>
         </div>
         
         <div class="contact-method">
           <div class="contact-icon">📱</div>
           <div>
-            <h3 style="margin: 0 0 0.3rem 0; color: #f7931e;">WhatsApp</h3>
-            <p style="margin: 0;"><a href="https://wa.me/50671434747" style="color: #ddd; text-decoration: none;">+506 7143-4747</a></p>
+            <h3>WhatsApp</h3>
+            <p><a href="https://wa.me/50671434747">+506 7143-4747</a></p>
           </div>
         </div>
         
         <div class="contact-method">
           <div class="contact-icon">📍</div>
           <div>
-            <h3 style="margin: 0 0 0.3rem 0; color: #f7931e;">Modalidad</h3>
-            <p style="margin: 0;">Servicio a domicilio/digital</p>
-            <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">(No tenemos tienda física)</p>
+            <h3>Modalidad</h3>
+            <p>Servicio a domicilio/digital</p>
+            <p style="font-size: 0.9rem;">(No tenemos tienda física)</p>
           </div>
         </div>
       </div>
@@ -1106,12 +1224,12 @@
   <footer>
     <div class="footer-content">
       <div>
-        <img src="logo-white.png" alt="VEALTECH" class="footer-logo">
+        <img src="logo-white.png" alt="VEALTECH" class="footer-logo" loading="lazy">
         <p>Servicio técnico especializado en reparación y armado de computadoras. Soluciones personalizadas y honestas.</p>
         <div class="social-links">
-          <a href="https://wa.me/50671434747"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:vealtech.cr@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="tel:+50671434747"><i class="fas fa-phone-alt"></i></a>
+          <a href="https://wa.me/50671434747" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:vealtech.cr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+50671434747" aria-label="Teléfono"><i class="fas fa-phone-alt"></i></a>
         </div>
       </div>
       
@@ -1142,16 +1260,18 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/50671434747" class="boton-contacto">
+  <a href="https://wa.me/50671434747" class="boton-contacto" aria-label="Contactar por WhatsApp">
     <span>💬</span> WhatsApp
   </a>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script>
+    // Initialize AOS animations
     AOS.init({
-      duration: 1000,
-      once: true
+      duration: 800,
+      once: true,
+      offset: 100
     });
     
     // Form submission handling
@@ -1166,8 +1286,19 @@
       question.addEventListener('click', () => {
         question.classList.toggle('active');
         const answer = question.nextElementSibling;
-        answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + 'px';
+        if (answer.style.maxHeight) {
+          answer.style.maxHeight = null;
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
       });
+      
+      // Open first FAQ by default on mobile
+      if (window.innerWidth <= 768) {
+        const firstQuestion = document.querySelector('.faq-question');
+        firstQuestion.classList.add('active');
+        firstQuestion.nextElementSibling.style.maxHeight = firstQuestion.nextElementSibling.scrollHeight + 'px';
+      }
     });
     
     // Calculator functionality
@@ -1213,9 +1344,12 @@
       document.getElementById('estimate-amount').textContent = '₡' + total.toLocaleString();
       document.getElementById('estimate-details').textContent = serviceName + (urgency === 'express' ? ' (Servicio Express)' : '');
       document.getElementById('estimate-result').style.display = 'block';
+      
+      // Scroll to result for better mobile UX
+      document.getElementById('estimate-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
     
-    // Booking form
+    // Booking form - set min date to today
     document.getElementById('booking-date').min = new Date().toISOString().split('T')[0];
     
     document.getElementById('booking-form').addEventListener('submit', function(e) {
@@ -1224,14 +1358,97 @@
       const time = document.getElementById('booking-time').value;
       const service = document.getElementById('booking-service').value;
       
-      // Aquí podrías conectar con un backend o simplemente mostrar un mensaje
-      alert(`Cita agendada para el ${date} en el horario ${time} para ${service}. Nos comunicaremos para confirmar.`);
+      // Simple validation
+      if (!date || !time || !service) {
+        alert('Por favor completa todos los campos');
+        return;
+      }
+      
+      // Show confirmation
+      const timeText = {
+        '9-11': '9:00 AM - 11:00 AM',
+        '11-1': '11:00 AM - 1:00 PM',
+        '1-3': '1:00 PM - 3:00 PM',
+        '3-5': '3:00 PM - 5:00 PM'
+      }[time];
+      
+      const serviceText = {
+        'diagnostico': 'Diagnóstico',
+        'reparacion': 'Reparación',
+        'armado': 'Armado de PC',
+        'asesoramiento': 'Asesoramiento'
+      }[service];
+      
+      alert(`Cita agendada para el ${date} en el horario ${timeText} para ${serviceText}. Nos comunicaremos para confirmar.`);
       this.reset();
     });
-      // Menú responsive toggle
-    document.getElementById("menu-btn").addEventListener("click", function() {
-      document.getElementById("nav-menu").classList.toggle("show");
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const offset = 80; // Adjust for fixed header
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (window.innerWidth <= 768) {
+            document.querySelector('nav').classList.remove('active');
+          }
+        }
+      });
     });
+    
+    // Add loading="lazy" to all images for better performance
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+    });
+    
+    // Handle very small screens
+    function handleMobileMenu() {
+      if (window.innerWidth <= 360) {
+        const nav = document.querySelector('nav');
+        if (!document.querySelector('.menu-toggle')) {
+          const toggle = document.createElement('button');
+          toggle.className = 'menu-toggle';
+          toggle.innerHTML = '☰';
+          nav.insertBefore(toggle, nav.firstChild);
+          
+          toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+          });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !e.target.classList.contains('menu-toggle')) {
+              nav.classList.remove('active');
+            }
+          });
+        }
+      } else {
+        const toggle = document.querySelector('.menu-toggle');
+        if (toggle) {
+          toggle.remove();
+        }
+      }
+    }
+    
+    // Run on load and resize
+    window.addEventListener('load', handleMobileMenu);
+    window.addEventListener('resize', handleMobileMenu);
   </script>
 </body>
 </html>
