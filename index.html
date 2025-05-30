@@ -645,11 +645,44 @@
         width: 180px; /* Tamaño más pequeño para móviles */
       }
     }
+  
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #f7931e;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #0a0a0a;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <nav>
+    <button class="nav-toggle" id="menu-btn"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="nav-menu">
     <a href="#inicio">Inicio</a>
     <a href="#servicios">Servicios</a>
     <a href="#nosotros">Nosotros</a>
@@ -658,7 +691,8 @@
     <a href="#faq">Preguntas</a>
     <a href="#blog">Consejos</a>
     <a href="#contacto">Contacto</a>
-  </nav>
+      </div>
+</nav>
 
   <header id="inicio" data-aos="fade-down">
     <img src="logo.png" alt="Logo de VEALTECH">
@@ -1076,8 +1110,16 @@
     <span>💬</span> WhatsApp
   </a>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">    // Menú responsive toggle
+    document.getElementById("menu-btn").addEventListener("click", function() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">    // Menú responsive toggle
+    document.getElementById("menu-btn").addEventListener("click", function() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    });
+  </script>
   <script>
     AOS.init({
       duration: 1000,
@@ -1157,6 +1199,10 @@
       // Aquí podrías conectar con un backend o simplemente mostrar un mensaje
       alert(`Cita agendada para el ${date} en el horario ${time} para ${service}. Nos comunicaremos para confirmar.`);
       this.reset();
+    });
+      // Menú responsive toggle
+    document.getElementById("menu-btn").addEventListener("click", function() {
+      document.getElementById("nav-menu").classList.toggle("show");
     });
   </script>
 </body>
